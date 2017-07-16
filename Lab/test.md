@@ -1,4 +1,4 @@
-##自测练习
+## 自测练习
 
 ---
 
@@ -123,8 +123,11 @@ function foo(obj){
 }
 ```
 请说明函数foo的作用:
-检测一个对象的数据类型并返回。该对象是截取obj的第八位到倒数第二位字符
+检测一个对象的数据类型并返回。该对象是截取obj的第八位到倒数第二位
 
+`Object.prototype.toString.call(obj)`  // "[object Array]"
+
+`Object.prototype.toString.call([]).slice(8, -1)` // "array"
 **Object.prototype.toString()**：一个表示该对象的字符串
 
 **call方法**：调用一个函数, 其具有一个指定的this值和分别提供的参数(参数的列表)。
