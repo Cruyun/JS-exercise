@@ -1,6 +1,5 @@
 ## 自测练习
 
----
 
 ```
 var a = function(){} //一个空的对象
@@ -112,6 +111,7 @@ console.log("toString" in map); // true
 console.log("a" in map); // true
 ```
 《Eloquent JavaScript》 6.6:
+
 JavaScript会区分“可枚举（enumerable)”与“不可枚举（nonenumberable）”属性。
 我们创建并赋予对象的所有属性都是可枚举的。
 
@@ -123,11 +123,13 @@ function foo(obj){
 }
 ```
 请说明函数foo的作用:
+
 检测一个对象的数据类型并返回。该对象是截取obj的第八位到倒数第二位
 
 `Object.prototype.toString.call(obj)`  // "[object Array]"
 
 `Object.prototype.toString.call([]).slice(8, -1)` // "array"
+
 **Object.prototype.toString()**：一个表示该对象的字符串
 
 **call方法**：调用一个函数, 其具有一个指定的this值和分别提供的参数(参数的列表)。
