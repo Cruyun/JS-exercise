@@ -124,7 +124,7 @@ function foo(obj){
 ```
 请说明函数foo的作用:
 
-检测一个对象的数据类型并返回。该对象是截取obj的第八位到倒数第二位
+检测一个对象的数据类型并返回。该对象是截取obj的第八位到倒数第一位（包含第八不包含倒数第二）
 
 `Object.prototype.toString.call(obj)`  // "[object Array]"
 
