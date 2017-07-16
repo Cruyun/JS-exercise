@@ -18,6 +18,7 @@ console.log(foo.d) // -->4
 知识点：《Eloquent JavaScript》Chapter 6 原型和构造函数
 
 每个对象都有一个私有属性(称为是[[Prototype]]), 它持有一个连接到另一个称为其 prototype 对象的链接。该原型对象具有一个自己的原型，等等，直到达到一个对象的 prototype 为 null。null 没有 prototype，是这个 prototype chain 中的最后一个环节。
+`new a().b`相当于`var foo = new a(); console.log(foo.b)`
 
 ---
 
@@ -63,10 +64,19 @@ var Foo = function(){
 var bar = new Foo()
 console.log(bar.a) //--> undefined
 ```
-``` a:2;```是在声明一个对象的时候使用的，比如
+`a:2;`是在声明一个对象的时候使用的，比如
 `var foo = {
       a:2;
   } `
+
+```
+var Foo = function(){
+   this.a = 1
+}
+Foo.prototype.a = 2;
+var bar = new Foo()
+console.log(bar.a) //--> 1
+```
 
 [JavaScript中的对象查找](http://www.otakustay.com/object-lookup-in-javascript/)里关于this：
 
@@ -100,10 +110,10 @@ Apply Pattern
 
 ---
 ```
-var map = Object.create(null); // 创建一个原型为null的空对象
+var map = Object.create(null); // 创建一个没有原型的对象
 console.log("toString" in map); // false
 ```
-空对象中没有“toString”属性。
+空对象没有原型链，所以没有“toString”属性。
 
 ```
 var map = Object.create({a:1});
@@ -124,13 +134,13 @@ function foo(obj){
 ```
 请说明函数foo的作用:
 
-检测一个对象的数据类型并返回。该对象是截取obj的第八位到倒数第一位（包含第八不包含倒数第二）
+检测一个对象的数据类型并返回。该对象是截取obj的第八位到倒数第一位（包含第八不包含倒数第一）
 
 `Object.prototype.toString.call(obj)`  // "[object Array]"
 
 `Object.prototype.toString.call([]).slice(8, -1)` // "array"
 
-**Object.prototype.toString()**：一个表示该对象的字符串
+**Object.prototype.toString()**：一个表示该对象的字符串。
 
 **call方法**：调用一个函数, 其具有一个指定的this值和分别提供的参数(参数的列表)。
 
@@ -167,4 +177,4 @@ console.log("bar" in a); // false
 ```
 Object.defineProperty函数定义不可枚举属性，该函数允许我们创建属性时控制属性类型。
 
-Object.definePorperty默认是immutable的,所以writable enumerable都是false
+Object.definePorperty默认是{configurable:false},immutable的,所以writable enumerable都是false
