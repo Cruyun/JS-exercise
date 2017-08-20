@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html>
-<body>
-<script>
-function personn{firstname,lastname,age,eyecolor}
-{
-this.firstname=firstname;
-this.lastname=lastname;
-this.age=age;
-this.eyecolor=eyecolor;
 
-this.changeName=changeName;
-function chageName(name)
-{
-this.lastname=name;
-}
-}
-myMother=new personn("Steve","Jobs",56,"green");
-myMother.changeName("Ballmer");
-document.write(myMother.lastname);
-</script>
+<body>
+    <script>
+        function personn {
+            firstname,
+            lastname,
+            age,
+            eyecolor
+        } {
+            this.firstname = firstname;
+            this.lastname = lastname;
+            this.age = age;
+            this.eyecolor = eyecolor;
+
+            this.changeName = changeName;
+
+            function chageName(name) {
+                this.lastname = name;
+            }
+        }
+        myMother = new personn("Steve", "Jobs", 56, "green");
+        myMother.changeName("Ballmer");
+        document.write(myMother.lastname);
+    </script>
 </body>
+
 </html>

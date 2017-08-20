@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<script>
-var txt="";
-function message()
-{
-try
-  {
-  	adddlert("Welcome guest!");
-	}
-catch(err)
-{
-	txt="There is an error on this page.\n\n";
-	txt+="error description: " + err.message +"\n\n";
-	txt+="Click OK to continue.\n\n";
-	alert(txt);
-  }
-}
-</script>
+
 </head>
 
 <body>
 	<input type="button" value="View message" onclick="message()">
 </body>
+<script>
+	var txt = "";
+
+	function message() {
+		try {
+			adddlert("Welcome guest!");
+		} catch (err) {
+			txt = "There is an error on this page.\n\n";
+			txt += "error description: " + err.message + "\n\n";
+			txt += "Click OK to continue.\n\n";
+			alert(txt);
+		}
+	}
+</script>
+
 </html>

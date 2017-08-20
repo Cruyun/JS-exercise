@@ -3,32 +3,26 @@
 <head>
 	<title></title>
 </head>
-<body
 
+<body <h1>my first Javascript</h1>
+	<p>请输入 5 到 10 之间的数字：</p>
+	<input type="text" id="demo">
+	<button type="button" onclick="myFunction()">输入测试值</button>
+	<p id="mess"></p>
+</body>
 <script>
-function myFunction()
-{
-try
-{
-var x=document.getElementById("demo").value;
-if (x=="")   throw "值为空";
-if(isNaN(x)) throw "不是数字";
-if(x>10)     throw "太大";
-if(x<5)      throw "太小";
-}
-catch(err)
-{
-var y=document.getElementById("mess");
-y.innerHTML="错误: " + err + "。";
-}
-}
+	function myFunction() {
+		try {
+			var x = document.getElementById("demo").value;
+			if (x == "") throw "值为空";
+			if (isNaN(x)) throw "不是数字";
+			if (x > 10) throw "太大";
+			if (x < 5) throw "太小";
+		} catch (err) {
+			var y = document.getElementById("mess");
+			y.innerHTML = "错误: " + err + "。";
+		}
+	}
 </script>
 
-<h1>my first Javascript</h1>
-<p>请输入 5 到 10 之间的数字：</p>
-<input type="text" id="demo">
-<button type="button" onclick="myFunction()">输入测试值</button>
-<p id="mess"></p>
-
-</body>
 </html>
