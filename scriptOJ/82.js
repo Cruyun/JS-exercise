@@ -1,6 +1,4 @@
-//#80 数组中的数据划分
-// 快排的第一次划分
-const partition = (arr) => {
+const partition3way = (arr) => {
   let pivot = arr[0];
   let j = -1;
   var i;
@@ -10,7 +8,11 @@ const partition = (arr) => {
       let temp = arr[j];
       arr[j] = arr[i];
       arr[i] = temp;
-    }
+    } 
+    // else if (arr[i] == pivot) {
+    //   j++;
+    // }
+    console.log(j, " ", arr)
   }
   let t = arr[i + 1];
   arr[i + 1] = arr[arr.length - 1];
@@ -18,4 +20,4 @@ const partition = (arr) => {
   return arr;
 }
 
-console.log(partition([3, 1, 6, 2, 4, 5]))
+console.log(partition3way([3,5,8,1,2,3]))
