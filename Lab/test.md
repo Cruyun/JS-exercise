@@ -174,15 +174,15 @@ a.bar = 2
 Object.defineProperty(a, "foo",
                       { value: "hi"});
 
-console.log(delete a.foo) //false
-console.log(delete a.bar) //true
+console.log(delete a.foo) //false  writable :false
+console.log(delete a.bar) //true 
 
 a.foo = "world"
 console.log(a.foo) // "hi"
 
 
 for (var key in a){
-  console.log(key); 
+  console.log(key);  // undefined
 }
 
 console.log("foo" in a); // true
@@ -190,8 +190,7 @@ console.log("bar" in a); // false
 ```
 `Object.defineProperty` 函数定义不可枚举属性，该函数允许我们创建属性时控制属性类型。
 
-`Object.definePorperty` 默认是 `{configurable:false},immutable` 的,所以`writable enumerable` 都是 `false`
-
+`Object.definePorperty` 默认是 `{enumerable:faslse, configurable:false,writable :false} immutable（不可改变的）` 
 
 ---
 
